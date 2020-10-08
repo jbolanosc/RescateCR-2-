@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if title %} {{ title }} {% else %} RescateCR {% endif %}</title>
+  </head>
+  <body>
+    {% extends "base.html" %} {% block content %}
+    <section class="hero is-link is-fullheight has-text-light">
+      <div class="hero-body">
+        <div class="container columns is-vcentered has-text-centered">
+          <div class="column is-desktop">
+            <img src={{url_for('static', filename='uploads/site/petting.svg')}}
+            alt=""/>
+          </div>
+          <div class="column is-half-desktop has-text-centered">
+            <p class="has-text-weight-bold is-size-2">
+              REFUGIOS<span class="has-text-danger">CR</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% endblock %}
+  </body>
+</html>

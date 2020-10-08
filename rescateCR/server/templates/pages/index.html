@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% extends "base.html" %} {% block content %}
+
+    <!-- Landing Section -->
+    <section class="hero is-light is-fullheight-with-navbar">
+      <div class="hero-body">
+        <div class="container columns is-vcentered has-text-centered">
+          <div class="column is-half is-desktop">
+            <p class="has-text-weight-bold is-size-2">Buscas una mascota?</p>
+            <p class="has-text-weight-bold is-size-3">
+              No busques más aca encontraras las mas hermosas de Costa Rica.
+            </p>
+          </div>
+          <div class="column is-desktop">
+            <img src={{url_for('static', filename='uploads/site/landing.svg')}}
+            alt=""/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="hero is-link is-fullheight has-text-light">
+      <div class="hero-body">
+        <div class="container columns is-vcentered has-text-centered">
+          <div class="column is-desktop">
+            <img src={{url_for('static', filename='uploads/site/petting.svg')}}
+            alt=""/>
+          </div>
+          <div class="column is-half-desktop has-text-centered">
+            <p class="has-text-weight-bold is-size-2">
+              Qué es Rescate<span class="has-text-danger">CR</span>
+            </p>
+            <p class="has-text-weight-bold is-size-6">
+              Es una plataforma para los refugios de animales en Costa Rica, que
+              buscan hogares para sus animales rescatados, asi como también para
+              las personas que desean encontrar una mascota y quieren ayudar a
+              los animales y refugios del país.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Most Popular Section -->
+    <section class="hero is-light is-fullheight">
+      <div class="hero-body">
+        <div class="columns is-vcentered">
+          <div class="column is-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://bulma.io/images/placeholders/1280x960.png"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img
+                        src="https://bulma.io/images/placeholders/96x96.png"
+                        alt="Placeholder image"
+                      />
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@johnsmith</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br />
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://bulma.io/images/placeholders/1280x960.png"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img
+                        src="https://bulma.io/images/placeholders/96x96.png"
+                        alt="Placeholder image"
+                      />
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@johnsmith</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br />
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://bulma.io/images/placeholders/1280x960.png"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img
+                        src="https://bulma.io/images/placeholders/96x96.png"
+                        alt="Placeholder image"
+                      />
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@johnsmith</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br />
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% endblock %}
+  </body>
+</html>
