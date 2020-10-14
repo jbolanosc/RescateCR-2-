@@ -1,6 +1,7 @@
 from .. import db
-from flask_login import current_user
+from flask_login import current_user, login_user
 from ..models import Employee, Refuge
+from .password_service import check_password, hash_password
 
 
 def get_employee(id):
@@ -8,6 +9,20 @@ def get_employee(id):
     if employee:
         return employee
     return 'Employee not found.'
+
+
+def login_employee(email, password):
+    if email and password:
+        employee = db.session.query(Employee).filter_by(email=email).fi
+        if employee:
+            if check_password(employee.password, password):
+                login_user(employee)
+            else:
+                return 'Wrong Username or password'
+        else:
+            return 'Invalid Username or Password'
+    else:
+        return 'Invalid data'
 
 
 def update_employee(id, data):
@@ -40,7 +55,7 @@ def create_employee(data):
                             email=data["email"],
                             refuge=data["refuge"],
                             role=data["role"],
-                            password=data["password"])
+                            password=hash_password(data["password"]))
     db.session.add(new_employee)
     db.session.add()
     return 'Employee saved'

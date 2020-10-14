@@ -20,7 +20,7 @@ def save_animal(animal):
 
 
 def get_animal(id):
-    animal = Animal.get(id)
+    animal = Animal.query.get(id)
     if animal:
         return animal
     return 'Animal not found.'

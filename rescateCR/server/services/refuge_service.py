@@ -1,6 +1,15 @@
 from .. import db
-from flask_login import current_user
+from flask_login import current_user, login_user
 from ..models import Refuge
+from .password_service import check_password, hash_password
+
+
+def email_exists(email):
+    refuge = db.session.query(Refuge).filter(Refuge.email == email).first()
+    if refuge:
+        return True
+    else:
+        return False
 
 
 def get_refuges():
@@ -9,7 +18,7 @@ def get_refuges():
 
 
 def get_refuge(id):
-    refuge = Refuge.get_by_id(id)
+    refuge = Refuge.query.get(id)
     if not refuge:
         msg = 'Refuge not found'
         return msg
@@ -17,14 +26,18 @@ def get_refuge(id):
 
 
 def create_refuge(data):
-    new_refuge = Refuge(name=data["name"],
-                        phone=data["phone"],
-                        email=data["email"],
-                        address=data["address"])
-    db.session.add(new_refuge)
-    db.session.commit()
-    msg = 'Refuge Created.'
-    return msg
+    if not email_exists(data["email"]):
+        new_refuge = Refuge(name=data["name"],
+                            phone=data["phone"],
+                            email=data["email"],
+                            address=data["address"],
+                            password=hash_password(data["password"]))
+        db.session.add(new_refuge)
+        db.session.commit()
+        msg = 'Refuge Created.'
+        return msg
+    else:
+        return "The email  is already in use"
 
 
 def update_refuge(id, data):
@@ -46,3 +59,18 @@ def delete_refuge(id):
         db.session.commit()
         return 'Refuge Deleted'
     return 'Refuge not found'
+
+
+def login_refuge(email, password):
+    if email and password:
+        refuge = db.session.query(Refuge).filter_by(email=email).first()
+        if refuge:
+            if check_password(refuge.password, password):
+                login_user(refuge)
+                return "Logged in"
+            else:
+                return "Wrong Username or Password"
+        else:
+            return "Wrong Username or Password"
+    else:
+        return "Invalid Data"
