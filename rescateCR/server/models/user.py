@@ -29,7 +29,7 @@ class User(UserMixin, db.Model):
         }
 
     @login_manager.user_loader
-    def load_user(self, user_id):
+    def load_user(user_id):
         if user_id is not None:
             user = User.query.get(user_id)
             return user

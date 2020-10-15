@@ -20,7 +20,7 @@ def create():
         if request.method == 'POST':
             refuge = request.form
             msg = create_refuge(refuge)
-            return jsonify(refuge)
+            return jsonify(msg)
         return render_template('refuge/refugeForm.html')
     except Exception as e:
         return (str(e))
@@ -42,7 +42,7 @@ def update(id):
 def get_one(id):
     try:
         refuge = get_refuge(id)
-        return render_template('refuge/refuge.html')
+        return render_template('refuge/refuge.html', refuge=refuge)
     except Exception as e:
         return (str(e))
 

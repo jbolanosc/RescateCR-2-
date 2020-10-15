@@ -7,8 +7,34 @@
   </head>
   <body>
     {% extends "base.html" %} {% block content %}
-    <section class="hero is-fullheight-with-navbar is-primary is-bold">
-      <div class="container"></div>
+    <section class="hero is-fullheight-with-navbar is-bold">
+      <div class="hero-body">
+        <div class="container columns is-vcentered has-text-centered">
+          <div class="column">
+            <h2 class="title has-text-danger">Inicio de Sesión</h2>
+            <form class="card" method="POST">
+              <!-- Field -->
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <input class="input" name="email" type="text" />
+                </div>
+              </div>
+              <!-- Field -->
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input class="input" name="password" type="password" />
+                </div>
+              </div>
+              <!-- Field -->
+              <div class="field">
+                <input class="button is-info" type="submit" value="Ingresar" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
     {% endblock %}
   </body>

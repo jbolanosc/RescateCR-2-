@@ -27,11 +27,12 @@ def get_refuge(id):
 
 def create_refuge(data):
     if not email_exists(data["email"]):
+        hashed = hash_password(data["password"])
         new_refuge = Refuge(name=data["name"],
                             phone=data["phone"],
                             email=data["email"],
                             address=data["address"],
-                            password=hash_password(data["password"]))
+                            password=hashed)
         db.session.add(new_refuge)
         db.session.commit()
         msg = 'Refuge Created.'
@@ -64,6 +65,8 @@ def delete_refuge(id):
 def login_refuge(email, password):
     if email and password:
         refuge = db.session.query(Refuge).filter_by(email=email).first()
+        print(refuge.name)
+        print(refuge.password)
         if refuge:
             if check_password(refuge.password, password):
                 login_user(refuge)

@@ -19,7 +19,7 @@ def validate_password(password, msg):
 
 
 def hash_password(password):
-    hashed = bcrypt.generate_password_hash(password)
+    hashed = bcrypt.generate_password_hash(password, 12).decode('UTF8')
     return hashed
 
 

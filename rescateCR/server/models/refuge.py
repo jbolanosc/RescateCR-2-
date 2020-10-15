@@ -31,8 +31,8 @@ class Refuge(UserMixin, db.Model):
         }
 
     @login_manager.user_loader
-    def load_user(self, refuge_id):
-        if refuge_id is not None:
-            refuge = Refuge.query.get(refuge_id)
-            return refuge
+    def load_user(user_id):
+        if user_id is not None:
+            user = Refuge.query.get(user_id)
+            return user
         return None

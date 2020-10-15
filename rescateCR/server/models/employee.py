@@ -31,8 +31,8 @@ class Employee(UserMixin, db.Model):
         }
 
     @login_manager.user_loader
-    def load_employee(self, employee_id):
-        if employee_id is not None:
-            employee = Employee.query.get(employee_id)
-            return employee
+    def load_employee(user_id):
+        if user_id is not None:
+            user = Employee.query.get(user_id)
+            return user
         return None

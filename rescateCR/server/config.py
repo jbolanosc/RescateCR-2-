@@ -8,6 +8,8 @@ class Config(object):
     CSRF_ENABLED = True
     SECRET_KEY = 'askdj_fjeo_12*fkf'
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    UPLOAD_FOLDER = "/static/updloads"
+    ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png"]
 
 
 class ProductionConfig(Config):

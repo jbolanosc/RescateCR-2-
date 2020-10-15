@@ -4,5 +4,7 @@ python manage.py db migrate
 
 python manage.py db upgrade to apply migrations
 
+python manage.py db stamp head
+
 sudo docker compose up -d --build to exec and build detached
 

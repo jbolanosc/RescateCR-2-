@@ -12,12 +12,12 @@ def login():
             refuge = current_user.refuge
             return redirect(f'/refuge/{current_user.id}')
         elif request.method == "GET":
-            return render_template('auth/login')
+            return render_template('auth/login.html')
         else:
             email = request.form["email"]
             password = request.form["password"]
             msg = login_refuge(email, password)
-            return redirect(f'/refuge/{current_user.id}')
+            return redirect(f'/refuges/{current_user.id}')
     except Exception as e:
         return (str(e))
 
