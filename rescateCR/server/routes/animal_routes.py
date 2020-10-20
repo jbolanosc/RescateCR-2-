@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, abort, request, jsonify
 from jinja2 import TemplateNotFound
-from flask_login import login_required
+from flask_login import login_required, current_user
 from ..services.animal_service import get_animals, get_animal, save_animal, update_animal, delete_animal
 
 animal_page = Blueprint('animal_page', __name__, template_folder="templates")
@@ -10,8 +10,7 @@ animal_page = Blueprint('animal_page', __name__, template_folder="templates")
 def index():
     try:
         animals = get_animals()
-        #return jsonify([e.serialize() for e in animals])
-        return render_template('animal/Animals.html')
+        return render_template('animal/Animals.html', animals=animals)
     except Exception as e:
         return (str(e))
 

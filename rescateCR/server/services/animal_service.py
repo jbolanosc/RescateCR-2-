@@ -5,14 +5,13 @@ from ..models import Animal
 
 def save_animal(animal):
     new_animal = Animal(name=animal["name"],
-                        description=animal["description"],
-                        photos=animal["photos"],
-                        refuge=animal["refuge"],
-                        adopted=False,
+                        photos="",
+                        refuge=current_user.id,
+                        adopted=bool(animal["adopted"]),
                         size=animal["size"],
                         animal_type=animal["animal_type"],
                         breed=animal["breed"],
-                        owner=animal['owner'])
+                        owner=None)
     db.session.add(new_animal)
     db.session.commit()
     msg = f'Animal {animal["name"]} saved.'

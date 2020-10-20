@@ -1,8 +1,7 @@
-from .. import db, login_manager
-from flask_login import UserMixin
+from .. import db
 
 
-class User(UserMixin, db.Model):
+class User(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String())
     email = db.Column(db.String())
@@ -27,10 +26,3 @@ class User(UserMixin, db.Model):
             'favList': self.favList,
             'animals': self.animals
         }
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        if user_id is not None:
-            user = User.query.get(user_id)
-            return user
-        return None

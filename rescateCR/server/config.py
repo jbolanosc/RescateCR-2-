@@ -1,5 +1,6 @@
 import os
-basedir = os.path.abspath(os.path.dirname(__file__))
+
+path = os.getcwd()
 
 
 class Config(object):
@@ -8,8 +9,10 @@ class Config(object):
     CSRF_ENABLED = True
     SECRET_KEY = 'askdj_fjeo_12*fkf'
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-    UPLOAD_FOLDER = "/static/updloads"
+    UPLOAD_FOLDER = os.path.join(path, 'uploads')
     ALLOWED_EXTENSIONS = ["jpg", "jpeg", "png"]
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = 16 * 1024 * 1024
 
 
 class ProductionConfig(Config):

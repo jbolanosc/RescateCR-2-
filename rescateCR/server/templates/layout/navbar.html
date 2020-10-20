@@ -1,0 +1,50 @@
+<!-- NavBar-->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-weight-bold is-size-3" href="/">
+      Rescate<span class="has-text-link">C</span
+      ><span class="has-text-danger">R</span>
+    </a>
+
+    <a
+      role="button"
+      class="navbar-burger burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/animals"> Animales </a>
+
+      <a class="navbar-item" href="/refuges"> Refugios </a>
+    </div>
+
+    <div class="navbar-end">
+      {% if not current_user.is_authenticated %}
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-link" href="/refuges/create">
+            <strong>Registrarse</strong>
+          </a>
+          <a class="button is-danger" href="/auth/login_refuge">Ingresar</a>
+        </div>
+        {% endif %} {% if current_user.is_authenticated %}
+        <div class="buttons">
+          <a class="button is-text" href="/refuges/{{current_user.id}}">
+            {{current_user.name}}
+          </a>
+          <a class="button is-danger" href="/auth/logout">Logout</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- End NavBar -->

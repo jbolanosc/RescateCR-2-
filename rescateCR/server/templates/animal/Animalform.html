@@ -15,49 +15,68 @@
             alt=""/>
           </div>
           <div class="column is-half-desktop has-text-centered">
-            <h2 class="title has-text-danger">Registra tu Refugio</h2>
+            <h2 class="title has-text-danger">Registra un Animal</h2>
             <div class="card">
-              <div class="card-content">
+              <form
+                class="card-content"
+                action="{{url_for('animal_page.create')}}"
+                method="POST"
+              >
                 <!-- Field -->
                 <div class="field">
                   <label class="label">Nombre</label>
                   <div class="control">
                     <input
+                      name="name"
                       class="input"
                       type="text"
-                      placeholder="Nombre del Refugio"
+                      placeholder="Nombre del animal"
                     />
                   </div>
                 </div>
                 <!-- Field -->
                 <div class="field">
-                  <label class="label">Telefono</label>
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Telefono" />
+                  <label class="label">Tamaño</label>
+                  <div class="select control is-info">
+                    <select name="size">
+                      <option>Selecciona el tamaño</option>
+                      <option value="big">Grande</option>
+                      <option value="medium">Medio</option>
+                      <option value="small">pequeño</option>
+                    </select>
                   </div>
                 </div>
                 <!-- Field -->
                 <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Email" />
+                  <label class="label">Tipo</label>
+                  <div class="select control is-info">
+                    <select name="animal_type">
+                      <option>Selecciona el tipo de animal</option>
+                      <option value="cat">Gato</option>
+                      <option value="dog">Perro</option>
+                    </select>
                   </div>
                 </div>
                 <!-- Field -->
                 <div class="field">
-                  <label class="label">Dirección</label>
-                  <div class="control">
-                    <input class="input" type="text" placeholder="Direccion" />
+                  <label class="label">Adoptado</label>
+                  <div class="select control is-info">
+                    <select name="adopted">
+                      <option>Selecciona</option>
+                      <option value="True">Si</option>
+                      <option value="">No</option>
+                    </select>
                   </div>
                 </div>
                 <!-- Field -->
                 <div class="field">
-                  <label class="label">Contraseña</label>
+                  <label class="label">Raza</label>
                   <div class="control">
                     <input
+                      name="breed"
                       class="input"
-                      type="password"
-                      placeholder="Contraseña"
+                      type="text"
+                      placeholder="Raza"
                     />
                   </div>
                 </div>
@@ -69,7 +88,7 @@
                     value="Registrar"
                   />
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

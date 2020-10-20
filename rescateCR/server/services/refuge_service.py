@@ -65,12 +65,10 @@ def delete_refuge(id):
 def login_refuge(email, password):
     if email and password:
         refuge = db.session.query(Refuge).filter_by(email=email).first()
-        print(refuge.name)
-        print(refuge.password)
         if refuge:
             if check_password(refuge.password, password):
                 login_user(refuge)
-                return "Logged in"
+                return f'Bienvenido {refuge.name}'
             else:
                 return "Wrong Username or Password"
         else:

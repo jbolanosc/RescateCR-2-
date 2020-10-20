@@ -16,10 +16,64 @@
           </div>
           <div class="column is-half-desktop has-text-centered">
             <p class="has-text-weight-bold is-size-2">
-              Animales <span class="has-text-danger">CR</span>
+              <span class="has-text-danger">Animales</span>
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="hero is-light">
+      <div class="hero-body">
+        {% if animals is not none %}
+        <div class="container">
+          <div class="columns is-vcentered is-centered">
+            {% for animal in animals %}
+            <!-- AnimalCard -->
+            <div class="column is-desktop is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img
+                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img
+                          src="https://bulma.io/images/placeholders/96x96.png"
+                          alt="Placeholder image"
+                        />
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">{{animal.name}}</p>
+                    </div>
+                  </div>
+
+                  <div class="content">
+                    <p><strong>Refugio: </strong>{{animal.refuge}}</p>
+                    <p><strong>Tamaño: </strong>{{animal.size}}</p>
+                    <p><strong>Raza: </strong>{{animal.breed}}</p>
+                    <strong>Adoptado: </strong>{{animal.adopted}}
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+
+        <div class="container">
+          <h1 class="title">No hay animales disponibles en este momento</h1>
+        </div>
+
+        {% endif%}
       </div>
     </section>
     {% endblock %}

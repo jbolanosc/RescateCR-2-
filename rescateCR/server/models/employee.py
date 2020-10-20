@@ -1,8 +1,7 @@
-from .. import db, login_manager
-from flask_login import UserMixin
+from .. import db
 
 
-class Employee(UserMixin, db.Model):
+class Employee(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     phone = db.Column(db.String())
@@ -29,10 +28,3 @@ class Employee(UserMixin, db.Model):
             'role': self.role,
             'password': self.password
         }
-
-    @login_manager.user_loader
-    def load_employee(user_id):
-        if user_id is not None:
-            user = Employee.query.get(user_id)
-            return user
-        return None

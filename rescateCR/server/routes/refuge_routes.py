@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, render_template
-from flask_login import login_required
+from flask_login import login_required, current_user
 from ..services.refuge_service import get_refuge, get_refuges, create_refuge, update_refuge, delete_refuge
 
 refuge_page = Blueprint('refuge_page', __name__, template_folder="templates")
@@ -9,7 +9,7 @@ refuge_page = Blueprint('refuge_page', __name__, template_folder="templates")
 def get():
     try:
         refuges = get_refuges()
-        return render_template('refuge/refuges.html')
+        return render_template('refuge/refuges.html', refuges=refuges)
     except Exception as e:
         return (str(e))
 

@@ -8,55 +8,7 @@
     <link rel="stylesheet" href="/static/styles/bulma.min.css" />
   </head>
   <body>
-    <!-- NavBar-->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item has-text-weight-bold is-size-3" href="/">
-          Rescate<span class="has-text-link">C</span
-          ><span class="has-text-danger">R</span>
-        </a>
-
-        <a
-          role="button"
-          class="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="/animals"> Animales </a>
-
-          <a class="navbar-item" href="/refuges"> Refugios </a>
-        </div>
-
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-link" href="/refuges/create">
-                <strong>Registrarse</strong>
-              </a>
-              <a class="button is-danger" href="/auth/login_refuge">Ingresar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- End NavBar -->
-    {% block content %} {% endblock %}
-
-    <!-- Footer -->
-    <footer class="footer has-background-link has-text-light">
-      <div class="content has-text-centered">
-        <p><strong>RescateCR</strong> by Raccoon Labs</p>
-      </div>
-    </footer>
-    <!-- End Footer-->
+    {% include 'layout/navbar.html' %} {% include 'layout/flash.html' %} {%
+    block content %} {% endblock %} {% include 'layout/footer.html' %}
   </body>
 </html>
